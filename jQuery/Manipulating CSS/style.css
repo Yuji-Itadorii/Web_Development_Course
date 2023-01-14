@@ -1,0 +1,15 @@
+.text{
+    color: aqua;
+    font-size: 10rem;
+    font-family: cursive;
+}
+
+
+.bg{
+    background-color: blue;
+}
+
+.borderClass{
+    border: 5px solid rgb(243, 14, 14);
+}
+
