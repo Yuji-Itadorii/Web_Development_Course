@@ -1,0 +1,40 @@
+
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10vh 20vw;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    margin: 7vh;
+}
+
+.dashboard_box{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.form_button{
+    margin: 1rem;
+}
+
+.search_div{
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+}

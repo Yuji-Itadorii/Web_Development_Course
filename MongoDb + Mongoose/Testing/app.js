@@ -14,13 +14,13 @@ const fruitSchema = new mongoose.Schema({
 
 const Fruit = mongoose.model("Fruit" , fruitSchema);
 
-// const fruit = new Fruit(
-//     {
-//         name : "Apple",
-//         rating : 1,
-//         review : "Pretty Awsesome !!"
-//     }
-// );
+const fruit = new Fruit(
+    {
+        name : "Apple",
+        rating : 1,
+        review : "Pretty Awsesome !!"
+    }
+);
 // const orange = new Fruit(
 //     {
 //         name : "orange",
@@ -36,15 +36,15 @@ const Fruit = mongoose.model("Fruit" , fruitSchema);
 //     }
 // );
 
-Fruit.find((err , fruit)=>{
-    if(err){
-        console.log("Error");
-    }
-    else{
-        mongoose.connection.close();
-        fruit.forEach((obj)=>{
-                console.log(obj.name);
-        });
-    }
-})
-// fruit.save();
+// Fruit.find((err , fruit)=>{
+//     if(err){
+//         console.log("Error");
+//     }
+//     else{
+//         mongoose.connection.close();
+//         fruit.forEach((obj)=>{
+//                 console.log(obj.name);
+//         });
+//     }
+// })
+fruit.save();

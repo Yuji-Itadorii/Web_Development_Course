@@ -1,0 +1,78 @@
+<%- include("partials/header") -%>
+
+  <div>
+    <div class="heading">
+      <h1>Manufacturer's Dashboard </h1>
+    </div>
+    <div class="box dashboard_box">
+      <div class="conatiner m-3 search_div">
+        <form class="d-flex" method="post" action="/search_m">
+          <input class="form-control me-2" type="search" placeholder="Search" name="find_this" aria-label="Search">
+          <div class="container box-2">
+            <div class="form-check container">
+              <input class="form-check-input" type="radio" name="option" id="Oder_id" value="Oder_id">
+              <label class="form-check-label" for="Oder_id">
+                Order
+              </label>
+            </div>
+            <div class="form-check container">
+              <input class="form-check-input" type="radio" name="option" id="To" value="To">
+              <label class="form-check-label" for="To">
+                To
+              </label>
+            </div>
+            <div class="form-check container">
+              <input class="form-check-input" type="radio" name="option" id="From" value="From">
+              <label class="form-check-label" for="From">
+                From
+              </label>
+            </div>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        </form>
+        <div class="conatiner form_button">
+          <form action="/fill_manufacture" method="GET">
+            <button type="submit" class="btn btn-primary btn-sm">Fill form</button>
+          </form>
+        </div>
+      </div>
+      <div class="container">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <% All_objects.forEach((obj)=>{ %>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target= "#<%=obj.Oder_id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <%=obj.Oder_id %>
+                </button>
+              </h2>
+              <div id= "<%=obj.Oder_id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <ul>
+                    <li>To ->
+                      <%=obj.To %>
+                    </li>
+                    <li>From ->
+                      <%=obj.From %>
+                    </li>
+                    <li>Quantity ->
+                      <%=obj.Quantity %>
+                    </li>
+                    <li>Address ->
+                      <%=obj.Address %>
+                    </li>
+                    <li>Transporter ->
+                      <%=obj.Transporter %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <%}); %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/footer") -%>

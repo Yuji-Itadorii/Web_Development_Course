@@ -1,0 +1,29 @@
+<%- include("partials/header") -%>
+    <div>
+        <div class="heading">
+            <h1>Fill Order Form </h1>
+        </div>
+        <div class="box">
+            <form class="row g-3" action="/fill_tranporters" method="post">
+                <div class="col-md-12">
+                    <label  class="form-label">
+                        Order Id Number
+                    </label>
+                    <input type="text" class="form-control"  name="order_id" placeholder="XB120" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">
+                        Price 
+                    </label>
+                    <input type="number" class="form-control" name="price" required />
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        Send to Manufacturer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include("partials/footer") -%>

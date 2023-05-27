@@ -1,0 +1,14 @@
+<%-include("header") -%> 
+
+    <div class="messages-content">
+        <div class="message new"> Hello I am A Bot !!  </div>
+        <% repond.forEach((obj)=>{ %>
+            <div class="message message-personal new"><%=obj.personal_message %> </div>
+            <div class="message new"> <%= obj.message  %> </div>
+        <%}); %>
+    </div>
+  
+
+
+<%-include("footer") -%> 
+

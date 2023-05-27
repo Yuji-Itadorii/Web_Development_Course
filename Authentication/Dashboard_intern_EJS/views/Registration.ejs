@@ -1,0 +1,65 @@
+<%- include("partials/header") -%>
+
+    <div>
+        <div class="heading">
+            <h1>Registration </h1>
+        </div>
+        <div class="box">
+            <form class="row g-3" action="/register" method="POST">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">
+                        First Name
+                    </label>
+                    <input type="text" class="form-control"  name="fname" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">
+                        Last Name
+                    </label>
+                    <input type="text" class="form-control" name="lname"  required>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">
+                        Email
+                    </label>
+                    <input type="email" class="form-control" placeholder="abc@mail.com" name="email" required />
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">
+                        Password
+                    </label>
+                    <input type="password" class="form-control" name="password" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">
+                        Address
+                    </label>
+                    <input type="tel" class="form-control" name="phone" >
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option" id="manufacture" value="manufacture">
+                        <label class="form-check-label" for="manufacture">
+                            Manufacturer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="option" id="transporter" value="transporter" >
+                        <label class="form-check-label" for="transporter">
+                            Transporter
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        Sign in
+                    </button>
+                </div>
+                <div class="col-12">
+                    <p>Already registered? <a href="/login">sign in</a> </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include("partials/footer") -%>
