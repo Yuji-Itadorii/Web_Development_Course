@@ -7,9 +7,9 @@ const bodyParser = require("body-parser");
 const port = 3000 || process.env.PORT;
 const ejs = require("ejs");
 const got = require("got");
+const dotenv = require("dotenv").config();
 
 var Request;
-
 
 // ***********************************************************************************
 
@@ -22,8 +22,7 @@ async function runSample(msg, projectId = "ar-bot-dasn") {
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient({
-    keyFilename:
-      "secrets.json",
+    keyFilename: "secrets.json",
   });
   const sessionPath = sessionClient.projectAgentSessionPath(
     projectId,
@@ -72,7 +71,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  // res.render("index");
+  // res.render("index");z
   res.render("index");
 });
 
@@ -94,7 +93,7 @@ app.post("/reply", (req, res) => {
     const parameter = Request[0].queryResult.parameters.fields.place_name;
     if (parameter != undefined) {
       place_name = parameter.stringValue;
-      const id = "cbf83c3b4a317a6157a34b09e21591a1";
+      const id = process.env.ID;
       const unit = "metric";
 
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${place_name}&appid=${id}&units=${unit}`;
@@ -105,7 +104,7 @@ app.post("/reply", (req, res) => {
           const lon = weatherData.coord.lon;
           const lat = weatherData.coord.lat;
           // console.log(lon);
-          const place_url = `https://api.geoapify.com/v2/places?categories=tourism&filter=circle:${lon},${lat},5000&bias=proximity:${lon},${lat}&limit=3&apiKey=364e05da3d7f468296c0a6b0bb8575cf`;
+          const place_url = `https://api.geoapify.com/v2/places?categories=tourism&filter=circle:${lon},${lat},5000&bias=proximity:${lon},${lat}&limit=3&apiKey=${process.env.APIKEY}`;
 
           https.get(place_url, (response2) => {
             let chunks = [];
@@ -119,15 +118,15 @@ app.post("/reply", (req, res) => {
                 const place1 = place_Data.features[0].properties.name;
                 const place2 = place_Data.features[1].properties.name;
                 const place3 = place_Data.features[2].properties.name;
-                const famous_place = place1 + " , "+ place2+" , "+ place3;
+                const famous_place = place1 + " , " + place2 + " , " + place3;
                 // console.log(famous_place);
                 const reply = {
                   personal_message: req.body.msg,
-                  message: "Some tourist places are:- "+ famous_place,
+                  message: "Some tourist places are:- " + famous_place,
                 };
 
                 array.push(reply);
-                
+
                 res.render("reply", { repond: array });
               });
           });
